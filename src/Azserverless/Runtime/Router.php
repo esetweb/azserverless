@@ -15,7 +15,7 @@ class Router {
 
     public function __construct($baseFunctionsDir) {
         $this->baseFunctionsDir = $baseFunctionsDir;
-        // TODO maybe create a more specific log handler. 
+        // TODO maybe create a more specific log handler.
         // So far TestHandler works for our purposes.
         $this->logHandler = new TestHandler();
         $this->log = new Logger('serverless');
@@ -25,7 +25,7 @@ class Router {
         set_exception_handler(array($this, 'exceptionHandler'));
     }
 
-    protected function exceptionHandler($exception) {
+    public function exceptionHandler($exception) {
         $this->context->log->error($exception);
         $response = [
             'Outputs' => NULL,
