@@ -34,7 +34,14 @@ class Router {
         ];
         header("Content-type: application/json");
         http_response_code($exception->getCode());
-        echo(json_encode($response));
+
+        $response = json_encode($response);
+        if ($json === false) {
+            echo "JSON encoding failed: " . json_last_error_msg();
+        } else {
+            echo $response;
+        }
+
         exit(1);
     }
 
