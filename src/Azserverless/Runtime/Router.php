@@ -36,7 +36,7 @@ class Router {
         http_response_code($exception->getCode());
 
         $response = json_encode($response);
-        if ($json === false) {
+        if ($response === false) {
             echo "JSON encoding failed: " . json_last_error_msg();
         } else {
             echo $response;
