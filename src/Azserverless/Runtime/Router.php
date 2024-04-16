@@ -33,6 +33,7 @@ class Router {
             'Logs' => $this->getLogs()
         ];
         header("Content-type: application/json");
+        http_response_code($exception->getCode());
         echo(json_encode($response));
         exit(1);
     }
