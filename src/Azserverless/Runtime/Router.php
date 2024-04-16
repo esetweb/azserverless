@@ -26,7 +26,7 @@ class Router {
     }
 
     public function exceptionHandler($exception) {
-        $this->context->log->error($exception->getMe);
+        $this->context->log->error($exception);
         $response = [
             'Outputs' => NULL,
             'ReturnValue' => NULL,
@@ -41,7 +41,7 @@ class Router {
         } else {
             echo $response;
         }
-        
+
         exit(1);
     }
 
